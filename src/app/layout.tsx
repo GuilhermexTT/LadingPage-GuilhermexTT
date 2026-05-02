@@ -9,8 +9,8 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
-  title: "Guilherme Gutilão | Desenvolvedor Front-end",
-  description: "Portfólio de Guilherme Gutilão, focado em Next.js, React e interfaces premium.",
+  title: "Guilherme Carvalho | Dev & Automation",
+  description: "Portfólio de Guilherme Carvalho, desenvolvedor especializado em automação, IA e desenvolvimento web premium.",
 };
 
 export default function RootLayout({
