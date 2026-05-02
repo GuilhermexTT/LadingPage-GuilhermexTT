@@ -1,0 +1,96 @@
+@import "tailwindcss";
+
+:root {
+  --background: #0A1628;
+  --bg-secondary: #0F1E35;
+  --foreground: #FFFFFF;
+  --text-muted: #8B9DC3;
+  --color-cyan: #00D4FF;
+  --color-card: rgba(15, 25, 50, 0.85);
+  --color-card-inner: rgba(20, 30, 55, 0.9);
+  --color-border: rgba(255, 255, 255, 0.08);
+  --color-border-hover: rgba(0, 212, 255, 0.5);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-cyan: var(--color-cyan);
+  --color-muted: var(--text-muted);
+  --font-sans: var(--font-space), "Inter", ui-sans-serif, system-ui, sans-serif;
+}
+
+html, body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+  min-height: 100vh;
+  /* Fundo com gradiente oceano: mais escuro no centro, glow ciano sutil no canto direito */
+  background-image:
+    radial-gradient(ellipse 60% 50% at 100% 20%, rgba(0, 180, 255, 0.12), transparent),
+    radial-gradient(ellipse 60% 60% at 0% 80%, rgba(10, 30, 80, 0.5), transparent),
+    linear-gradient(160deg, #0A1628 0%, #091220 50%, #050C1A 100%);
+}
+
+/* Card principal (bloco grande) */
+@utility bento-card {
+  background: rgba(13, 22, 45, 0.9);
+  border: 1px solid rgba(0, 212, 255, 0.45);
+  border-radius: 1.75rem;
+  transition: box-shadow 0.3s ease, transform 0.3s ease, border-color 0.3s ease;
+  /* Glow ciano forte e sempre visível */
+  box-shadow:
+    0 0 20px rgba(0, 212, 255, 0.5),
+    0 0 60px rgba(0, 212, 255, 0.25),
+    0 0 100px rgba(0, 212, 255, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+@utility bento-card-hover {
+  box-shadow:
+    0 0 30px rgba(0, 212, 255, 0.7),
+    0 0 80px rgba(0, 212, 255, 0.35),
+    0 0 120px rgba(0, 212, 255, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  border-color: rgba(0, 212, 255, 0.75);
+  transform: translateY(-6px);
+}
+
+/* Mini card de tecnologia (caixinhas cinza transparente) */
+@utility tech-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  border-radius: 1.25rem;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+@utility tech-card-hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(0, 212, 255, 0.3);
+  box-shadow: 0 0 20px rgba(0, 212, 255, 0.2);
+  transform: translateY(-4px);
+}
+
+/* Card de item da lista (AI Agents, Cloud Deploy etc.) */
+@utility list-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  border-radius: 1rem;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+@utility list-card-hover {
+  box-shadow: 0 0 20px rgba(0, 212, 255, 0.15);
+  transform: translateY(-3px);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(0, 212, 255, 0.2); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(0, 212, 255, 0.4); }
