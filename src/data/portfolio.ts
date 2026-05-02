@@ -39,18 +39,27 @@ export const portfolioCategories: PortfolioCategory[] = [
     emoji: "🌐",
     gradient: "from-[#0072FF] to-[#00C6FF]",
     projects: [
-      // Adicione seus projetos de landing page aqui:
-      // {
-      //   id: "nome-do-projeto",
-      //   title: "Nome do Projeto",
-      //   description: "Descrição do projeto...",
-      //   thumbnail: "/imagens/thumbnail.jpg",
-      //   tags: ["Next.js", "Tailwind"],
-      //   media: [
-      //     { type: "image", url: "/imagens/foto1.jpg", caption: "Tela inicial" },
-      //   ],
-      //   liveUrl: "https://seusite.com",
-      // },
+      {
+        id: "lp-drathaina",
+        title: "Landing Page — Dra. Thaína Carvalho",
+        description:
+          "Landing page premium para clínica médica estética. Design sofisticado com seção de resultados antes/após, depoimentos, apresentação de procedimentos e CTA otimizado para conversão via WhatsApp.",
+        thumbnail: "/lp-drathaina/1.png",
+        tags: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Sanity CMS", "Figma", "Vercel"],
+        liveUrl: "https://dra-thaina-carvalho.vercel.app/",
+        media: [
+          { type: "video", url: "/lp-drathaina/video.mp4",  caption: "Vídeo demonstrativo completo" },
+          { type: "image", url: "/lp-drathaina/1.png",      caption: "Hero — Apresentação da Dra. Thaína" },
+          { type: "image", url: "/lp-drathaina/2.png",      caption: "Seção de técnicas avançadas" },
+          { type: "image", url: "/lp-drathaina/3.png",      caption: "Procedimentos e especialidades" },
+          { type: "image", url: "/lp-drathaina/4.png",      caption: "Resultados antes & depois" },
+          { type: "image", url: "/lp-drathaina/5.png",      caption: "Galeria de resultados" },
+          { type: "image", url: "/lp-drathaina/6.png",      caption: "Depoimentos de pacientes" },
+          { type: "image", url: "/lp-drathaina/7.png",      caption: "Sobre a Dra. Thaína" },
+          { type: "image", url: "/lp-drathaina/8.png",      caption: "CTA e contato via WhatsApp" },
+          { type: "image", url: "/lp-drathaina/9.png",      caption: "Rodapé" },
+        ],
+      },
     ],
   },
 

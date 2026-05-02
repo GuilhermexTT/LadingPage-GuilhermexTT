@@ -296,12 +296,24 @@ export function ProjectDetailModal({
                           ) : (
                             <div className="w-full aspect-video max-h-[400px]">
                               {currentMedia.url ? (
-                                <iframe
-                                  src={currentMedia.url}
-                                  className="w-full h-full"
-                                  allowFullScreen
-                                  title={currentMedia.caption || project.title}
-                                />
+                                currentMedia.url.endsWith(".mp4") ? (
+                                  <video
+                                    key={currentMedia.url}
+                                    src={currentMedia.url}
+                                    className="w-full h-full object-contain"
+                                    controls
+                                    playsInline
+                                    preload="metadata"
+                                    title={currentMedia.caption || project.title}
+                                  />
+                                ) : (
+                                  <iframe
+                                    src={currentMedia.url}
+                                    className="w-full h-full"
+                                    allowFullScreen
+                                    title={currentMedia.caption || project.title}
+                                  />
+                                )
                               ) : (
                                 <div className="w-full h-full flex flex-col items-center justify-center gap-3 text-center px-6">
                                   <span className="text-5xl">🎬</span>
