@@ -10,14 +10,6 @@ import { Bot, Cloud, MapPin } from "lucide-react";
 const projects = [
   {
     id: 1,
-    title: "E-commerce Automation",
-    description: "Sistema completo de automação para e-commerce com integração de n8n,...",
-    category: "Automation",
-    tags: ["n8n", "Node.js", "API Integration"],
-    image: "https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?w=600&q=80",
-  },
-  {
-    id: 2,
     title: "AI Chatbot Platform",
     description: "Plataforma de chatbot inteligente com processamento de linguagem natural e...",
     category: "AI & Automation",
@@ -25,40 +17,16 @@ const projects = [
     image: "https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=600&q=80",
   },
   {
-    id: 3,
+    id: 2,
     title: "Dashboard Analytics",
     description: "Dashboard interativo para análise de dados em tempo real com visualizações dinâmicas e...",
     category: "Web Development",
     tags: ["React", "Tailwind", "Charts"],
     image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&q=80",
   },
-  {
-    id: 4,
-    title: "Cloud Migration Suite",
-    description: "Suite completa de ferramentas para migração e gerenciamento de infraestrutura cloud...",
-    category: "Cloud Solutions",
-    tags: ["AWS", "Docker", "Terraform"],
-    image: "https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?w=600&q=80",
-  },
-  {
-    id: 5,
-    title: "Workflow Optimizer",
-    description: "Plataforma de otimização de workflows com automação inteligente e integração com ERPs...",
-    category: "Automation",
-    tags: ["n8n", "API", "Node.js"],
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&q=80",
-  },
-  {
-    id: 6,
-    title: "Mobile App Backend",
-    description: "API robusta e escalável para aplicações mobile com autenticação e arquitetura...",
-    category: "Backend Development",
-    tags: ["Node.js", "PostgreSQL", "REST API"],
-    image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=600&q=80",
-  },
 ];
 
-const FILTERS = ["Todos", "Automation", "AI & Automation", "Web Development", "Cloud Solutions", "Backend Development"];
+const FILTERS = ["Todos", "AI & Automation", "Web Development"];
 
 const categoryColor: Record<string, string> = {
   "Automation":          "bg-[#00D4FF] text-black",
