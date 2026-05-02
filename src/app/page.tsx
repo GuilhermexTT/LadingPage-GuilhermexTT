@@ -1,101 +1,16 @@
 "use client";
 
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { BentoCard, TechCard, ListCard } from "@/components/BentoCard";
 import { SiReact, SiNodedotjs, SiTailwindcss, SiN8N } from "react-icons/si";
 import { Bot, Cloud, MapPin } from "lucide-react";
-
-// ── DADOS DOS PROJETOS ─────────────────────────────────────
-const projects = [
-  {
-    id: 1,
-    title: "AI Chatbot Platform",
-    description: "Plataforma de chatbot inteligente com processamento de linguagem natural e...",
-    category: "AI & Automation",
-    tags: ["AI", "React", "Python"],
-    image: "https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=600&q=80",
-  },
-  {
-    id: 2,
-    title: "Dashboard Analytics",
-    description: "Dashboard interativo para análise de dados em tempo real com visualizações dinâmicas e...",
-    category: "Web Development",
-    tags: ["React", "Tailwind", "Charts"],
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&q=80",
-  },
-];
-
-const FILTERS = ["Todos", "AI & Automation", "Web Development"];
-
-const categoryColor: Record<string, string> = {
-  "Automation":          "bg-[#00D4FF] text-black",
-  "AI & Automation":     "bg-[#00D4FF] text-black",
-  "Web Development":     "bg-[#00D4FF] text-black",
-  "Cloud Solutions":     "bg-[#00D4FF] text-black",
-  "Backend Development": "bg-[#00D4FF] text-black",
-};
-
-function ProjectCard({ project, delay }: { project: typeof projects[0]; delay: number }) {
-  return (
-    <motion.div
-      layout
-      initial={{ opacity: 0, scale: 0.96, y: 20 }}
-      animate={{ opacity: 1, scale: 1, y: 0 }}
-      exit={{ opacity: 0, scale: 0.96, y: 20 }}
-      transition={{ duration: 0.35, delay, ease: [0.22, 1, 0.36, 1] }}
-      whileHover={{
-        y: -6,
-        boxShadow: "0 0 30px rgba(0, 212, 255, 0.35), 0 0 80px rgba(0, 212, 255, 0.1)",
-        borderColor: "rgba(0, 212, 255, 0.55)",
-        transition: { duration: 0.15, ease: [0.22, 1, 0.36, 1] },
-      }}
-      className="bento-card overflow-hidden flex flex-col cursor-pointer"
-      style={{
-        boxShadow: "0 0 20px rgba(0, 212, 255, 0.25), 0 0 60px rgba(0, 212, 255, 0.1)",
-      }}
-    >
-      {/* Imagem de capa com badge */}
-      <div className="relative h-48 overflow-hidden">
-        <img
-          src={project.image}
-          alt={project.title}
-          className="w-full h-full object-cover"
-        />
-        {/* Gradiente para leitura */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0a1628]/80 via-transparent to-transparent" />
-        {/* Badge de categoria */}
-        <span className={`absolute top-3 right-3 px-3 py-1 rounded-full text-xs font-bold ${categoryColor[project.category] ?? "bg-[#00D4FF] text-black"}`}>
-          {project.category}
-        </span>
-      </div>
-
-      {/* Conteúdo */}
-      <div className="p-6 flex flex-col flex-1">
-        <h3 className="text-white font-bold text-lg mb-2">{project.title}</h3>
-        <p className="text-[#8B9DC3] text-sm leading-relaxed mb-5 flex-1">{project.description}</p>
-        {/* Tags */}
-        <div className="flex flex-wrap gap-2">
-          {project.tags.map((tag) => (
-            <span
-              key={tag}
-              className="px-3 py-1 rounded-full text-xs font-medium bg-white/5 border border-white/10 text-[#8B9DC3]"
-            >
-              {tag}
-            </span>
-          ))}
-        </div>
-      </div>
-    </motion.div>
-  );
-}
+import { portfolioCategories, type PortfolioCategory, type PortfolioProject } from "@/data/portfolio";
+import { VitrineModal, ProjectDetailModal } from "@/components/portfolio/VitrineModal";
 
 export default function Home() {
-  const [activeFilter, setActiveFilter] = useState("Todos");
-
-  const filtered = activeFilter === "Todos"
-    ? projects
-    : projects.filter((p) => p.category === activeFilter);
+  const [selectedCategory, setSelectedCategory] = useState<PortfolioCategory | null>(null);
+  const [selectedProject, setSelectedProject] = useState<PortfolioProject | null>(null);
 
   return (
     <main className="min-h-screen flex flex-col items-center px-4 md:px-8 py-14 md:py-20 gap-20">
@@ -254,41 +169,35 @@ export default function Home() {
           className="text-center"
         >
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-3">Meus Trabalhos</h2>
-          <p className="text-[#8B9DC3] text-base">Projetos desenvolvidos com paixão e dedicação</p>
+          <p className="text-[#8B9DC3] text-base">Clique em uma categoria para explorar os projetos</p>
         </motion.div>
 
-        {/* Pills de filtro */}
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-          className="flex flex-wrap justify-center gap-3"
-        >
-          {FILTERS.map((filter) => (
-            <button
-              key={filter}
-              onClick={() => setActiveFilter(filter)}
-              className={`px-5 py-2 rounded-full text-sm font-semibold border transition-all duration-200 cursor-pointer
-                ${activeFilter === filter
-                  ? "bg-[#00D4FF] text-black border-[#00D4FF] shadow-[0_0_18px_rgba(0,212,255,0.5)]"
-                  : "bg-white/5 text-[#94A3B8] border-white/10 hover:border-[#00D4FF]/40 hover:text-white"
-                }`}
-            >
-              {filter}
-            </button>
+        {/* Grid de categorias */}
+        <div className="w-full grid grid-cols-1 md:grid-cols-3 gap-5">
+          {portfolioCategories.map((cat, i) => (
+            <CategoryCard
+              key={cat.id}
+              category={cat}
+              delay={i * 0.1}
+              onClick={() => setSelectedCategory(cat)}
+            />
           ))}
-        </motion.div>
-
-        {/* Grid de projetos com AnimatePresence para transição de filtro */}
-        <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-          <AnimatePresence mode="popLayout">
-            {filtered.map((project, i) => (
-              <ProjectCard key={project.id} project={project} delay={i * 0.07} />
-            ))}
-          </AnimatePresence>
         </div>
 
       </div>
+
+      {/* ── Modais da vitrine ─────────────────────────────── */}
+      <VitrineModal
+        category={selectedCategory}
+        onClose={() => setSelectedCategory(null)}
+        onSelectProject={(p) => setSelectedProject(p)}
+      />
+      <ProjectDetailModal
+        project={selectedProject}
+        categoryEmoji={selectedCategory?.emoji}
+        onClose={() => { setSelectedProject(null); setSelectedCategory(null); }}
+        onBack={() => setSelectedProject(null)}
+      />
 
 
       {/* ══════════════════════════════════════════════════
@@ -370,6 +279,61 @@ export default function Home() {
       </div>
 
     </main>
+  );
+}
+
+/* ── CategoryCard ─────────────────────────────────────────── */
+function CategoryCard({
+  category,
+  delay,
+  onClick,
+}: {
+  category: PortfolioCategory;
+  delay: number;
+  onClick: () => void;
+}) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 24 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ delay, duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+      whileHover={{
+        y: -8,
+        boxShadow: "0 0 40px rgba(0, 212, 255, 0.45), 0 0 90px rgba(0, 212, 255, 0.15)",
+        borderColor: "rgba(0, 212, 255, 0.65)",
+        transition: { duration: 0.15, ease: [0.22, 1, 0.36, 1] },
+      }}
+      onClick={onClick}
+      className="bento-card p-7 flex flex-col gap-5 cursor-pointer group"
+      style={{
+        boxShadow: "0 0 28px rgba(0, 212, 255, 0.3), 0 0 70px rgba(0, 212, 255, 0.1)",
+      }}
+    >
+      {/* Emoji + gradiente de fundo */}
+      <div
+        className={`w-14 h-14 rounded-2xl flex items-center justify-center text-3xl bg-gradient-to-br ${category.gradient} shadow-lg`}
+      >
+        {category.emoji}
+      </div>
+
+      {/* Texto */}
+      <div className="flex flex-col gap-1 flex-1">
+        <h3 className="text-white font-bold text-xl">{category.title}</h3>
+        <p className="text-[#8B9DC3] text-sm leading-relaxed">{category.subtitle}</p>
+      </div>
+
+      {/* Rodapé */}
+      <div className="flex items-center justify-between">
+        <span className="text-xs text-[#8B9DC3]">
+          {category.projects.length === 0
+            ? "Em breve"
+            : `${category.projects.length} projeto${category.projects.length > 1 ? "s" : ""}`}
+        </span>
+        <span className="text-[#00D4FF] text-sm font-semibold group-hover:translate-x-1 transition-transform duration-150">
+          Ver projetos →
+        </span>
+      </div>
+    </motion.div>
   );
 }
 
