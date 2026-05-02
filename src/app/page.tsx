@@ -356,10 +356,10 @@ export default function Home() {
           {/* Ícones sociais */}
           <div className="flex items-center gap-4">
             {[
-              { href: "mailto:guilherme@email.com",     icon: <MailIcon /> },
-              { href: "https://github.com/",             icon: <GithubIcon /> },
-              { href: "https://linkedin.com/",           icon: <LinkedinIcon /> },
-              { href: "https://wa.me/5511999999999",           icon: <WhatsappIcon /> },
+              { href: "mailto:guilhermecardosodecarvalho534@gmail.com", icon: <MailIcon /> },
+              { href: "https://github.com/GuilhermexTT",               icon: <GithubIcon /> },
+              { href: "https://www.linkedin.com/in/guilherme-cardoso-de-carvalho", icon: <LinkedinIcon /> },
+              { href: "https://wa.me/5511949407785",                    icon: <WhatsappIcon /> },
             ].map(({ href, icon }, i) => (
               <motion.a
                 key={i}
@@ -381,7 +381,7 @@ export default function Home() {
 
           {/* Botão Get In Touch */}
           <motion.a
-            href="https://wa.me/5511999999999"
+            href="https://wa.me/5511949407785"
             target="_blank"
             rel="noopener noreferrer"
             whileHover={{
