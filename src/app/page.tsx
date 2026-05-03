@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { BentoCard, TechCard, ListCard } from "@/components/BentoCard";
-import { SiReact, SiNodedotjs, SiTailwindcss, SiN8N } from "react-icons/si";
+import { SiReact, SiNodedotjs, SiTailwindcss, SiN8N, SiPython, SiHtml5, SiGithub, SiTypescript, SiAnthropic } from "react-icons/si";
 import { Bot, Cloud, MapPin } from "lucide-react";
 import { portfolioCategories, type PortfolioCategory, type PortfolioProject } from "@/data/portfolio";
 import { VitrineModal, ProjectDetailModal } from "@/components/portfolio/VitrineModal";
@@ -38,41 +38,86 @@ export default function Home() {
         <BentoCard className="lg:col-span-2 p-7" delay={0.15}>
           <h2 className="text-2xl font-bold text-white mb-1">Stack Tecnológica</h2>
           <p className="text-[#8B9DC3] text-sm mb-7">Ferramentas de ponta para máxima performance</p>
-          <div className="grid grid-cols-2 gap-4">
-            <TechCard className="p-6 flex flex-col items-center justify-center gap-3" delay={0.25}>
-              <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#2563EB] to-[#3B82F6] flex items-center justify-center shadow-lg">
-                <SiReact className="w-8 h-8 text-white" />
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
+            <TechCard className="p-4 flex flex-col items-center justify-center gap-3" delay={0.25}>
+              <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#2563EB] to-[#3B82F6] flex items-center justify-center shadow-lg">
+                <SiReact className="w-7 h-7 text-white" />
               </div>
               <div className="text-center">
-                <p className="text-white font-semibold text-sm">React</p>
-                <p className="text-[#8B9DC3] text-xs mt-0.5">Modern UI library</p>
+                <p className="text-white font-semibold text-xs">React</p>
+                <p className="text-[#8B9DC3] text-[10px] mt-0.5">Frontend UI</p>
               </div>
             </TechCard>
-            <TechCard className="p-6 flex flex-col items-center justify-center gap-3" delay={0.3}>
-              <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#00B4CC] to-[#00D4FF] flex items-center justify-center shadow-lg">
-                <SiN8N className="w-8 h-8 text-white" />
+            <TechCard className="p-4 flex flex-col items-center justify-center gap-3" delay={0.3}>
+              <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#00B4CC] to-[#00D4FF] flex items-center justify-center shadow-lg">
+                <SiN8N className="w-7 h-7 text-white" />
               </div>
               <div className="text-center">
-                <p className="text-white font-semibold text-sm">n8n</p>
-                <p className="text-[#8B9DC3] text-xs mt-0.5">Workflow automation</p>
+                <p className="text-white font-semibold text-xs">n8n</p>
+                <p className="text-[#8B9DC3] text-[10px] mt-0.5">Automation</p>
               </div>
             </TechCard>
-            <TechCard className="p-6 flex flex-col items-center justify-center gap-3" delay={0.35}>
-              <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#7C3AED] to-[#9D4EDD] flex items-center justify-center shadow-lg">
-                <SiNodedotjs className="w-8 h-8 text-white" />
+            <TechCard className="p-4 flex flex-col items-center justify-center gap-3" delay={0.35}>
+              <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#7C3AED] to-[#9D4EDD] flex items-center justify-center shadow-lg">
+                <SiNodedotjs className="w-7 h-7 text-white" />
               </div>
               <div className="text-center">
-                <p className="text-white font-semibold text-sm">Node.js</p>
-                <p className="text-[#8B9DC3] text-xs mt-0.5">Backend runtime</p>
+                <p className="text-white font-semibold text-xs">Node.js</p>
+                <p className="text-[#8B9DC3] text-[10px] mt-0.5">Backend</p>
               </div>
             </TechCard>
-            <TechCard className="p-6 flex flex-col items-center justify-center gap-3" delay={0.4}>
-              <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#059669] to-[#10B981] flex items-center justify-center shadow-lg">
-                <SiTailwindcss className="w-8 h-8 text-white" />
+            <TechCard className="p-4 flex flex-col items-center justify-center gap-3" delay={0.4}>
+              <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#D97757] to-[#EE8449] flex items-center justify-center shadow-lg">
+                <SiAnthropic className="w-7 h-7 text-white" />
               </div>
               <div className="text-center">
-                <p className="text-white font-semibold text-sm">Tailwind</p>
-                <p className="text-[#8B9DC3] text-xs mt-0.5">CSS framework</p>
+                <p className="text-white font-semibold text-xs">Claude</p>
+                <p className="text-[#8B9DC3] text-[10px] mt-0.5">LLM &amp; AI</p>
+              </div>
+            </TechCard>
+            <TechCard className="p-4 flex flex-col items-center justify-center gap-3" delay={0.45}>
+              <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#3776AB] to-[#FFD43B] flex items-center justify-center shadow-lg">
+                <SiPython className="w-7 h-7 text-white" />
+              </div>
+              <div className="text-center">
+                <p className="text-white font-semibold text-xs">Python</p>
+                <p className="text-[#8B9DC3] text-[10px] mt-0.5">Scripting &amp; AI</p>
+              </div>
+            </TechCard>
+            <TechCard className="p-4 flex flex-col items-center justify-center gap-3" delay={0.5}>
+              <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#F06529] to-[#E34F26] flex items-center justify-center shadow-lg">
+                <SiHtml5 className="w-7 h-7 text-white" />
+              </div>
+              <div className="text-center">
+                <p className="text-white font-semibold text-xs">HTML5</p>
+                <p className="text-[#8B9DC3] text-[10px] mt-0.5">Structure</p>
+              </div>
+            </TechCard>
+            <TechCard className="p-4 flex flex-col items-center justify-center gap-3" delay={0.55}>
+              <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#3178C6] to-[#007ACC] flex items-center justify-center shadow-lg">
+                <SiTypescript className="w-7 h-7 text-white" />
+              </div>
+              <div className="text-center">
+                <p className="text-white font-semibold text-xs">TypeScript</p>
+                <p className="text-[#8B9DC3] text-[10px] mt-0.5">Typed JS</p>
+              </div>
+            </TechCard>
+            <TechCard className="p-4 flex flex-col items-center justify-center gap-3" delay={0.6}>
+              <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#181717] to-[#333] flex items-center justify-center shadow-lg">
+                <SiGithub className="w-7 h-7 text-white" />
+              </div>
+              <div className="text-center">
+                <p className="text-white font-semibold text-xs">GitHub</p>
+                <p className="text-[#8B9DC3] text-[10px] mt-0.5">Version Control</p>
+              </div>
+            </TechCard>
+            <TechCard className="p-4 flex flex-col items-center justify-center gap-3" delay={0.65}>
+              <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#059669] to-[#10B981] flex items-center justify-center shadow-lg">
+                <SiTailwindcss className="w-7 h-7 text-white" />
+              </div>
+              <div className="text-center">
+                <p className="text-white font-semibold text-xs">Tailwind</p>
+                <p className="text-[#8B9DC3] text-[10px] mt-0.5">Design</p>
               </div>
             </TechCard>
           </div>
@@ -110,7 +155,7 @@ export default function Home() {
       ══════════════════════════════════════════════════ */}
       <div className="w-full max-w-6xl">
         <BentoCard className="p-8 md:p-10" delay={0.1}>
-          <div className="flex flex-col sm:flex-row gap-7 mb-10">
+          <div className="flex flex-col sm:flex-row gap-7">
             <div className="flex-shrink-0 flex flex-col items-center gap-2">
               <div className="w-28 h-28 rounded-2xl overflow-hidden border-2 border-white/10">
                 <img
@@ -136,21 +181,6 @@ export default function Home() {
                 Desenvolvedor full-stack apaixonado por automação e inteligência artificial. Especializado em criar soluções inovadoras que transformam processos complexos em workflows eficientes. Com expertise em React, Node.js e n8n, construo aplicações modernas que unem design elegante e performance excepcional.
               </p>
             </div>
-          </div>
-          <div className="h-px w-full bg-gradient-to-r from-transparent via-white/10 to-transparent mb-10" />
-          <div className="grid grid-cols-3 gap-4 text-center">
-            <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}>
-              <p className="text-4xl md:text-5xl font-bold text-[#00D4FF] mb-1">5+</p>
-              <p className="text-[#8B9DC3] text-sm">Anos de Experiência</p>
-            </motion.div>
-            <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}>
-              <p className="text-4xl md:text-5xl font-bold text-[#00D4FF] mb-1">50+</p>
-              <p className="text-[#8B9DC3] text-sm">Projetos Entregues</p>
-            </motion.div>
-            <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.5, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}>
-              <p className="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#A855F7] to-[#C084FC] mb-1">100%</p>
-              <p className="text-[#8B9DC3] text-sm">Clientes Satisfeitos</p>
-            </motion.div>
           </div>
         </BentoCard>
       </div>
