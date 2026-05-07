@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { BentoCard, TechCard, ListCard } from "@/components/BentoCard";
-import { SiReact, SiNodedotjs, SiTailwindcss, SiN8N, SiPython, SiHtml5, SiGithub, SiTypescript, SiAnthropic, SiNextdotjs, SiJavascript, SiCss3 } from "react-icons/si";
+import { SiReact, SiNodedotjs, SiTailwindcss, SiN8N, SiPython, SiHtml5, SiGithub, SiTypescript, SiAnthropic, SiNextdotjs, SiJavascript, SiCss } from "react-icons/si";
 import { Bot, Cloud, MapPin } from "lucide-react";
 import { portfolioCategories, type PortfolioCategory, type PortfolioProject } from "@/data/portfolio";
 import { VitrineModal, ProjectDetailModal } from "@/components/portfolio/VitrineModal";
@@ -140,7 +140,7 @@ export default function Home() {
             </TechCard>
             <TechCard className="p-4 flex flex-col items-center justify-center gap-3" delay={0.8}>
               <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#1572B6] to-[#0D4B7A] flex items-center justify-center shadow-lg">
-                <SiCss3 className="w-7 h-7 text-white" />
+                <SiCss className="w-7 h-7 text-white" />
               </div>
               <div className="text-center">
                 <p className="text-white font-semibold text-xs">CSS3</p>
